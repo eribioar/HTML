@@ -1,0 +1,200 @@
+*{
+    box-sizing: border-box;
+    margin: 0; /*Inicializa margenes*/
+    padding: 0; /*Inicializa padding*/
+}
+html{
+    max-height: 100%; /*se adapte pag web a altura cualquier dispositivo*/
+}
+body{
+    font-family: tahoma;
+    font-size: 18px;
+    background-image: url(../img/incap\ se\ invencible2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/*seccion cabecera pc*/
+#header{
+    background-color: lightblue;
+    border: 2px solid blue;
+    border-radius: 20px 20px 10px 10px;
+    display: flex;
+    flex-direction: row;/*direccion horizontal o en fila*/
+    justify-content: center;/*alinea horizontalmente*/
+    align-items: center;/*alinea verticalmente*/
+    grid-area: header;/*asigna nombre al contenedor*/
+}
+/*sección menu */
+ul{
+    padding: 0 0;
+    margin: 0 1px;
+}
+li{
+
+    list-style: none;/*quitar las viñetas*/
+    margin: 0 5px;
+    font: bold 12px verdana;
+}
+a{
+    color: black;
+    text-decoration: none; /*quitar las lineas subrayadas*/
+}
+#menu{
+    grid-area: nav;/*asigna nombre a contenedor*/
+    background-color: blue;
+    border:2px solid green;
+    border-radius: 22px;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+
+}
+/*menu y submenu nuevo*/
+.menuB >li{
+    position: relative ;
+    display: inline-block ; 
+     }
+ .menuB >li >a {
+    display: block ;
+    padding: 15px 20px;
+    color: white;
+    text-decoration:none;
+     }
+.menuB li a:hover {
+    color:lightgreen;
+    transition: all .3s;
+    }
+/*submenu */
+.submenu{
+    position: absolute ;
+    background: blue;
+    width: 120%;
+    display: none ;
+    }
+   .submenu li a{
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+/*estilos para aplicar al pasar mouse en menu opciones se despliega submenu respectivo*/
+.menuB li:hover .submenu{
+    display: block;
+    z-index: 100;
+}
+/*nuevo estilo para buscdor */
+.buscarbox input{
+    height: 25px;
+    width: 0px;
+    padding: 0px 0px;
+    border-radius: 40px;
+    border: 0px;
+    padding-right: 50px;
+    transition: 0.8s ease;
+ }
+ /* se aplica una pseudoclase hover para expandir ancho al buscador */
+ .buscarbox input:hover{
+    width: 150px;
+    padding-left: 10px;
+    outline: none; /*quitar bordes*/
+ }
+ /*seccion contenido*/
+ #main{
+    grid-area: main;/*matricula nombre al contenedor section para grid*/
+    border: 2px solid green;
+    /*se define ancho y altura contenedor section para grid*/
+    max-width: 100%;
+    height: auto;
+    background-color: rgba(255,255,255,0.6);
+    backdrop-filter: blur(5px); 
+ }
+ figure,figcaption{
+    display: inline;
+    margin: 45px;
+    padding: 5px 5px;
+ }
+ 
+ .programa{ 
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px 5px; 
+    width: 45%;
+    height: 200px;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 15px 15px;
+
+ }
+ section article{
+    background-color: rgba(255,255,255,0.6);
+    backdrop-filter: blur(5px);
+    margin: 20px;
+    color: black;
+ }
+
+
+
+ /*seccion barra lateral */
+ #sidebar{
+    grid-area: sidebar;/*se asigna nombre al contenedor */
+    display: flex;
+    flex-direction: column;/* se define direccion en forma columna*/
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.6);
+    backdrop-filter: blur(5px);
+}
+/* se define ancho y altura contenedor para ajustar a vista de dispositivo actual*/
+iframe{
+    max-width: 100px;
+    height: auto;
+ }
+
+ /*seccion pie de pagina*/
+ #footer{
+    grid-area: footer;/* se asigna nombre a contenedor */
+    padding-top: 20px;
+    border: 2px solid green;
+    border-radius: 20px 20px 10px 10px;
+    clear: both;
+    background-color: rgba(255,255,255,0.6);
+    backdrop-filter: blur(20px);
+ }
+#redes a {
+    padding: 5px;
+    margin: 0px;
+    }
+#redes a i:hover{
+    transform: scaleX(1.5);
+    }
+/* Estilos iconos fontawesome */
+i[class^=]{
+    color: grey;
+    font-size: 30px;
+    border: 1px solid transparent;
+    margin: 0px;
+}
+/*seccion CSS GRID DISEÑO WEB RESPONSIVE*/
+/*se define estilos al contenedor grid en general vista PC*/
+#grid-container > * {
+    text-align: center;
+    box-shadow: 1px 1px 7px 0px rgba(0,0,0,0,0.75);
+}
+/*se define estilos al contenedor grid en general vista pc a 3 columnas. */
+#grid-container{
+    display: grid;
+    grid-gap: 10px;
+    grid-template: 
+    "header header header" 150px
+    "nav nav nav" 50px
+    "main main sidebar" 300px
+    "main main sidebar" 300px
+    "main main sidebar" 250px
+    "footer footer footer" 150px /
+    1000px 150px 300px;
+}
+/*-----SECCION VISTA DE TABLETS 2 COLUMNAS-----*/
